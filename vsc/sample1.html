@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>sample1</title>
+    <script>
+        var idcount=0;
+
+        function addInput() {
+            var todoInput = document.getElementById("inputtodo");
+            var todoText = todoInput.value;
+
+            if (todoText == null || todoText == "") {
+                alert("Todoが空白デス");
+            } else {
+                var newTodo = document.createElement("input");
+                newTodo.setAttribute("type", "chackbox");
+                newTodo.setAttribute("id", "check"+toString(idcount++));
+
+                var label = document.createTextNode(todoText);
+                var br = dovument.createElement("br");
+
+                var root = document.getElementById("todolist");
+                root.appendChild(newTodo);
+                root.appendChild(label);
+                root.appendChild(br);
+            }
+        }
+    </script>
+</head>
+<body>
+    <table width="600">
+        <tr>
+            <td width="70%">
+                <div id="todolist"></div>
+            </td>
+            <td width="30%">
+                <input type="text" size="20" id="inputtodo"><br>
+                <input type="button" value="Add" id="addinput" onclick="addInput()">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
